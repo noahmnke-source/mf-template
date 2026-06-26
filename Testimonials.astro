@@ -1,0 +1,24 @@
+---
+import site, { telHref } from "@/lib/site";
+const b = site.business;
+---
+<header class="hd">
+  <div class="wrap hd-in">
+    <a href="#top" class="brand">{b.name}</a>
+    <nav class="nav">
+      {site.services?.length ? <a href="#leistungen">Leistungen</a> : null}
+      <a href="#kontakt">Kontakt</a>
+      <a href={telHref} class="hd-call">{b.phone}</a>
+    </nav>
+  </div>
+</header>
+<style>
+  .hd { position: sticky; top: 0; z-index: 50; background: rgba(251,250,248,.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .hd-in { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .brand { font-family: var(--font-display); font-weight: 700; font-size: 1.18rem; letter-spacing: -.02em; }
+  .nav { display: flex; align-items: center; gap: 26px; font-weight: 500; font-size: .95rem; }
+  .nav a:not(.hd-call):hover { color: var(--accent); }
+  .hd-call { font-family: var(--font-display); font-weight: 600; color: var(--accent); border: 1.5px solid var(--accent); padding: 9px 16px; border-radius: 999px; }
+  .hd-call:hover { background: var(--accent); color: #fff; }
+  @media (max-width: 640px) { .nav a:not(.hd-call) { display: none; } }
+</style>

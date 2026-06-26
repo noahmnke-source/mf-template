@@ -1,0 +1,12 @@
+---
+import site, { telHref } from "@/lib/site";
+---
+<a href={telHref} class="callbar">📞 {site.business.name} anrufen</a>
+<style>
+  .callbar {
+    display: none; position: fixed; left: 14px; right: 14px; bottom: 14px; z-index: 60;
+    background: var(--accent); color: #fff; text-align: center; font-family: var(--font-display);
+    font-weight: 600; padding: 15px; border-radius: 999px; box-shadow: 0 10px 30px -8px rgba(0,0,0,.45);
+  }
+  @media (max-width: 640px) { .callbar { display: block; } body { padding-bottom: 78px; } }
+</style>

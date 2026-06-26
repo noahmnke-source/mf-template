@@ -1,0 +1,24 @@
+---
+import site from "@/lib/site";
+const b = site.business;
+const year = new Date().getFullYear();
+---
+<footer class="ft">
+  <div class="wrap ft-in">
+    <div>
+      <div class="fbrand">{b.name}</div>
+      {b.areas?.length ? <p class="areas">Tätig in: {b.areas.join(" · ")}</p> : null}
+    </div>
+    <div class="meta">
+      <span>© {year} {b.name}</span>
+      <span class="imp">Impressum &amp; Datenschutz auf Anfrage</span>
+    </div>
+  </div>
+</footer>
+<style>
+  .ft { background: var(--surface); border-top: 1px solid var(--line); padding: 40px 0; }
+  .ft-in { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: end; }
+  .fbrand { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; }
+  .areas { margin-top: 8px; font-size: .92rem; }
+  .meta { display: flex; flex-direction: column; gap: 4px; text-align: right; font-size: .85rem; color: var(--muted); }
+</style>
